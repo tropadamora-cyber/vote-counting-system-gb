@@ -1,0 +1,191 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User model for authentication
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  password  String
+  name      String
+  role      UserRole   @default(DELEGATE)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // Relations
+  delegateAssignments DelegateAssignment[]
+  dataSubmissions     DataSubmission[]
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  PARTY_LEADER
+  REGIONAL_COORDINATOR
+  DELEGATE
+}
+
+// Electoral Circle (Círculo Eleitoral)
+model ElectoralCircle {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  region    String
+  deputies  Int        // Number of deputies for this circle
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // Relations
+  votingAssemblies VotingAssembly[]
+  circleResults    CircleResult[]
+  candidates       Candidate[]
+  delegateAssignments DelegateAssignment[]
+
+  @@map("electoral_circles")
+}
+
+// Voting Assembly (Assembleia de Voto / Mesa de Voto)
+model VotingAssembly {
+  id        String     @id @default(cuid())
+  name      String
+  circleId  String
+  circle    ElectoralCircle @relation(fields: [circleId], references: [id])
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // Relations
+  dataSubmissions DataSubmission[]
+
+  @@unique([name, circleId])
+  @@map("voting_assemblies")
+}
+
+// Political Party/Candidate
+model Party {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  acronym   String     @unique
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // Relations
+  candidates Candidate[]
+  votes      Vote[]
+
+  @@map("parties")
+}
+
+// Candidate
+model Candidate {
+  id        String     @id @default(cuid())
+  name      String
+  partyId   String
+  party     Party      @relation(fields: [partyId], references: [id])
+  circleId  String?
+  circle    ElectoralCircle? @relation(fields: [circleId], references: [id], onDelete: SetNull)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([name, partyId])
+  @@map("candidates")
+}
+
+// Delegate Assignment (Delegado atribuído a uma Assembleia de Voto)
+model DelegateAssignment {
+  id        String     @id @default(cuid())
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+  circleId  String
+  circle    ElectoralCircle @relation(fields: [circleId], references: [id])
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([userId, circleId])
+  @@map("delegate_assignments")
+}
+
+// Data Submission (Submissão de dados de uma Assembleia de Voto)
+model DataSubmission {
+  id                    String     @id @default(cuid())
+  userId                String
+  user                  User       @relation(fields: [userId], references: [id])
+  votingAssemblyId      String
+  votingAssembly        VotingAssembly @relation(fields: [votingAssemblyId], references: [id])
+  
+  // Data from the voting assembly
+  registeredVoters      Int
+  actualVoters          Int
+  unusedBallots         Int
+  nullVotes             Int
+  blankVotes            Int
+  
+  // Photo of the official minutes
+  minutesPhotoUrl       String?
+  
+  // Submission status
+  status                SubmissionStatus @default(PENDING)
+  submittedAt           DateTime   @default(now())
+  updatedAt             DateTime   @updatedAt
+
+  // Relations
+  votes                 Vote[]
+
+  @@unique([votingAssemblyId])
+  @@map("data_submissions")
+}
+
+enum SubmissionStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+// Vote Count (Contagem de votos por partido)
+model Vote {
+  id                String     @id @default(cuid())
+  dataSubmissionId  String
+  dataSubmission    DataSubmission @relation(fields: [dataSubmissionId], references: [id], onDelete: Cascade)
+  partyId           String
+  party             Party      @relation(fields: [partyId], references: [id])
+  voteCount         Int
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt
+
+  @@unique([dataSubmissionId, partyId])
+  @@map("votes")
+}
+
+// Circle Results (Resultados totalizados por Círculo)
+model CircleResult {
+  id        String     @id @default(cuid())
+  circleId  String
+  circle    ElectoralCircle @relation(fields: [circleId], references: [id])
+  partyId   String
+  totalVotes Int
+  projectedSeats Int?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@unique([circleId, partyId])
+  @@map("circle_results")
+}
+
+// National Results (Resultados nacionais totalizados)
+model NationalResult {
+  id        String     @id @default(cuid())
+  partyId   String
+  totalVotes Int
+  projectedSeats Int?
+  updatedAt DateTime   @updatedAt
+
+  @@unique([partyId])
+  @@map("national_results")
+}

@@ -1,0 +1,67 @@
+================================================================================
+SISTEMA DE CONTAGEM PARALELA DE VOTOS - FICHEIROS INCLUÍDOS
+================================================================================
+
+📁 CÓDIGO-FONTE (src/)
+├── server.ts                  - Servidor principal Express
+├── middleware/
+│   └── auth.ts               - Middleware de autenticação JWT
+├── routes/
+│   ├── auth.ts               - Rotas de autenticação
+│   ├── circles.ts            - Rotas de círculos eleitorais
+│   ├── parties.ts            - Rotas de partidos políticos
+│   ├── delegates.ts          - Rotas de delegados
+│   ├── dataSubmission.ts     - Rotas de submissão de dados
+│   └── results.ts            - Rotas de resultados
+└── scripts/
+    └── seed.ts               - Script para popular BD
+
+🌐 FRONTEND (public/)
+├── index.html                - Interface web principal
+├── styles.css                - Estilos CSS
+└── app.js                    - Lógica JavaScript
+
+🗄️ BASE DE DADOS (prisma/)
+├── schema.prisma             - Esquema Prisma ORM
+└── migrations/               - Histórico de migrações
+
+📋 CONFIGURAÇÃO
+├── package.json              - Dependências Node.js
+├── package-lock.json         - Lock de versões
+├── tsconfig.json             - Configuração TypeScript
+├── .env                      - Variáveis de ambiente
+├── .env.example              - Exemplo de .env
+├── .gitignore                - Ficheiros ignorados Git
+├── Dockerfile                - Containerização Docker
+├── docker-compose.yml        - Orquestração Docker
+├── nginx.conf                - Configuração Nginx
+├── Procfile                  - Heroku deployment
+└── railway.json              - Railway.app deployment
+
+📚 DOCUMENTAÇÃO
+├── COMECE_AQUI.md            - Guia rápido (LEIA PRIMEIRO!)
+├── INSTALAR_LOCALMENTE.md    - Instalação detalhada
+├── README.md                 - Documentação técnica
+├── GUIA_UTILIZACAO.md        - Manual do utilizador
+├── GUIA_TESTES_LOCAL.md      - Testes completos
+├── DEPLOYMENT.md             - Guia de implantação
+├── PUBLICACAO.md             - Instruções de publicação
+├── MANUTENCAO_ATUALIZACOES.md - Manutenção e atualizações
+└── GUIA_RAPIDO_ATUALIZACOES.md - Atualizações rápidas
+
+💾 BASE DE DADOS
+└── schema.sql                - SQL para MySQL (opcional)
+
+================================================================================
+TOTAL DE FICHEIROS: 25+
+TAMANHO: ~70KB (comprimido)
+================================================================================
+
+🚀 COMO COMEÇAR:
+
+1. Extrair arquivo
+2. Ler COMECE_AQUI.md
+3. Seguir 5 passos de instalação
+4. Aceder a http://localhost:3000
+
+================================================================================
