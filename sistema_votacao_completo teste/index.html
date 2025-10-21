@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Contagem Paralela de Votos - Guiné-Bissau</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="screen active">
+            <div class="login-container">
+                <div class="login-box">
+                    <h1>Sistema de Contagem Paralela de Votos</h1>
+                    <p class="subtitle">Guiné-Bissau</p>
+                    
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required placeholder="seu.email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Senha:</label>
+                            <input type="password" id="password" name="password" required placeholder="Sua senha">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                        
+                        <div id="loginError" class="error-message" style="display: none;"></div>
+                    </form>
+                    
+                    <div class="test-credentials">
+                        <p><strong>Credenciais de Teste:</strong></p>
+                        <ul>
+                            <li>Admin: admin@example.com / admin123</li>
+                            <li>Líder: leader@example.com / leader123</li>
+                            <li>Delegado: delegate1@example.com / delegate123</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="dashboardScreen" class="screen">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <h2>Sistema de Contagem Paralela de Votos</h2>
+                </div>
+                <div class="navbar-menu">
+                    <span id="userDisplay" class="user-display"></span>
+                    <button id="logoutBtn" class="btn btn-secondary">Sair</button>
+                </div>
+            </nav>
+
+            <div class="container">
+                <div class="sidebar">
+                    <ul class="menu">
+                        <li><a href="#" class="menu-item active" data-section="overview">Visão Geral</a></li>
+                        <li><a href="#" class="menu-item" data-section="submissions">Submissões</a></li>
+                        <li><a href="#" class="menu-item" data-section="results">Resultados</a></li>
+                        <li><a href="#" class="menu-item" data-section="circles">Círculos</a></li>
+                        <li><a href="#" class="menu-item" data-section="parties">Partidos</a></li>
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <!-- Overview Section -->
+                    <section id="overviewSection" class="section active">
+                        <h2>Visão Geral do Sistema</h2>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h3>Total de Assembleias</h3>
+                                <p id="totalAssemblies" class="stat-value">-</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Submissões Recebidas</h3>
+                                <p id="submittedAssemblies" class="stat-value">-</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Submissões Verificadas</h3>
+                                <p id="verifiedSubmissions" class="stat-value">-</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Cobertura (%)</h3>
+                                <p id="coveragePercentage" class="stat-value">-</p>
+                            </div>
+                        </div>
+
+                        <div class="results-section">
+                            <h3>Resultados Nacionais Preliminares</h3>
+                            <div id="nationalResults" class="results-table">
+                                <p>Carregando resultados...</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Submissions Section -->
+                    <section id="submissionsSection" class="section">
+                        <h2>Submissões de Dados</h2>
+                        <div id="submissionsList" class="submissions-list">
+                            <p>Carregando submissões...</p>
+                        </div>
+                    </section>
+
+                    <!-- Results Section -->
+                    <section id="resultsSection" class="section">
+                        <h2>Resultados por Círculo</h2>
+                        <div id="circleSelect" class="form-group">
+                            <label for="selectedCircle">Selecionar Círculo:</label>
+                            <select id="selectedCircle">
+                                <option value="">Carregando círculos...</option>
+                            </select>
+                            <button id="loadCircleResults" class="btn btn-primary">Carregar Resultados</button>
+                        </div>
+                        <div id="circleResults" class="results-table" style="margin-top: 20px;">
+                            <p>Selecione um círculo para ver os resultados</p>
+                        </div>
+                    </section>
+
+                    <!-- Circles Section -->
+                    <section id="circlesSection" class="section">
+                        <h2>Círculos Eleitorais</h2>
+                        <div id="circlesList" class="circles-list">
+                            <p>Carregando círculos...</p>
+                        </div>
+                    </section>
+
+                    <!-- Parties Section -->
+                    <section id="partiesSection" class="section">
+                        <h2>Partidos Políticos</h2>
+                        <div id="partiesList" class="parties-list">
+                            <p>Carregando partidos...</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

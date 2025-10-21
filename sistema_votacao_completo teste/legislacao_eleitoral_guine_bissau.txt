@@ -1,0 +1,57 @@
+Text file: legislacao_eleitoral_guine_bissau.txt
+Latest content with line numbers:
+1771	
+1772	Operações preliminares
+1773	O presidente da mesa da assembleia de voto procede a separação dos boletins de voto que
+1774	não foram utilizados e os que, com aquela indicação, foram inutilizados, colocando-os em
+1775	envelopes separados devidamente rubricados e lacrados e tranca a lista dos eleitores, que
+1776	será assinada por todos membros da mesa da assembleia e delegados de lista presentes.
+1777	
+1778	ARTIGO 80.º
+1779	
+1780	Abertura das Urnas
+1781	1. Encerrada a votação, o presidente da mesa, procede a abertura da urna seguindo-se a
+1782	operação de contagem, por forma a verificar a correspondência entre os números de boletins
+1783	de voto existentes na urna e o número de eleitores que votaram naquela assembleia de voto,
+1784	na presença dos restantes membros.
+1785	2. Caso o número de boletins de voto existentes na urna seja inferior ao número de votantes,
+1786	vale, para efeitos de apuramentos, o número de boletim de voto existentes na urna.
+1787	3. Quando o número de boletins de voto existentes na urna for superior ao numero de votantes,
+1788	repetir-se-á a votação nessa mesa no prazo de 48 horas.
+1789	
+1790	ARTIGO 81.º
+1791	Contagem
+1792	
+1793	1. A contagem dos boletins de voto é feita de seguinte forma:
+1794	a)
+1795	O presidente da mesa procede à abertura da urna, na presença dos restantes membros;
+1796	b) O primeiro escrutinador, aponta os votos atribuídos a cada lista, numa folha de papel branco
+1797	ou caso exista num quadro grande;
+1798	c) O segundo escrutinador coloca em separado e por lotes depois de os exibir, os votos já lidos
+1799	correspondente a cada uma das listas, os votos em branco e os votos nulos;
+1800	d) O primeiro e o terceiro escrutinador procedem a contagem dos votos e o Presidente da
+1801	mesa a divulgação do número de votos que couber a cada lista ou candidato.
+1802	2. Terminada a operação a que se refere o número anterior, o Presidente da mesa procederá
+1803	ao confronto entre o número de votos existentes na urna e o número de votos por cada lote.
+1804	3. Os delegados de listas têm direito a verificar a contagem dos boletins de voto, sem, contudo,
+1805	alterar a ordem da disposição dos boletins de voto, podendo reclamar, em caso de dúvida,
+1806	45
+1807	
+1808	para o Presidente da mesa que analisa a reclamação.
+1809	4. Caso a reclamação não seja atendida pela mesa, o boletim de voto em causa é colocado
+1810	em separado para efeitos do disposto do número dois do artigo oitenta da presente lei.
+1811	
+1812	ARTIGO 82.º
+1813	
+1814	Destino dos Boletins do Voto
+1815	1. Os votos nulos e os boletins de voto que não tenham sido usados e os inutilizados são
+1816	rubricados pelo presidente da mesa e pelos delegados da lista e colocados em dois envelopes
+1817	separados que, depois de devidamente lacrados, serão remetidos à CRE.
+1818	2. Os votos objectos de reclamação são rubricados pelo presidente da mesa e pelos delegados
+1819	de lista que tenha reclamado e colocado num envelope que, depois de lacrados devidamente,
+1820	é remetido a Comissão de Regional de Eleições.
+1821	3. Os boletins de voto validamente expressos são colocados em envelopes lacrados e
+1822	remetidos à Comissão Regional de Eleições que, no Prazo de 48 horas após a publicação
+1823	definitiva dos resultados, faz seguir para a CNE para que esta, passado um ano, promova a
+1824	sua destruição.
+1825	
